@@ -106,7 +106,27 @@ ISR_CODE void ISR_FUNC(limit_interrupt_handler)(limit_signals_t state) // DEFAUL
         }
       #else
         mc_reset(); // Initiate system kill.
-        system_set_exec_alarm(Alarm_HardLimit); // Indicate hard limit critical event
+
+        if(state.min.x == 1){
+            if(sys.last_dir.x == 0){
+                system_set_exec_alarm(ALARM_X_MAX);
+            }else{
+                system_set_exec_alarm(ALARM_X_MIN);
+            }
+        }else if(state.min.y == 1){
+            if(sys.last_dir.y == 0){
+                system_set_exec_alarm(ALARM_Y_MAX);
+            }else{
+                system_set_exec_alarm(ALARM_Y_MIN);
+            }
+        }else if(state.min.z == 0){
+            if(sys.last_dir.z == 1){
+                system_set_exec_alarm(ALARM_Z_MAX);
+            }else{
+                system_set_exec_alarm(ALARM_Z_MIN);
+            }
+        }
+        //system_set_exec_alarm(Alarm_HardLimit); // Indicate hard limit critical event
       #endif
     }
 }

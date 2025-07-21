@@ -358,6 +358,7 @@ typedef struct system {
     int32_t position[N_AXIS];               //!< Real-time machine (aka home) position vector in steps.
     axes_signals_t hard_limits; //!< temporary?, will be removed when available in settings.
     axes_signals_t soft_limits; //!< temporary, will be removed when available in settings.
+    axes_signals_t last_dir; //
 //@}
 } system_t;
 

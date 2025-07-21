@@ -45,7 +45,13 @@ PROGMEM static const alarm_detail_t alarm_detail[] = {
     { Alarm_HomingFailAutoSquaringApproach, "Homing fail. Could not find second limit switch for auto squared axis within search distances. Try increasing max travel, decreasing pull-off distance, or check wiring." },
     { Alarm_SelftestFailed, "Power on selftest (POS) failed." },
     { Alarm_MotorFault, "Motor fault." },
-    { Alarm_HomingFail, "Homing fail. Bad configuration." }
+    { Alarm_HomingFail, "Homing fail. Bad configuration." },
+    { ALARM_X_MIN, "ALARM X MIN" },
+    { ALARM_X_MAX, "ALARM X MAX" },
+    { ALARM_Y_MIN, "ALARM Y MIN" },
+    { ALARM_Y_MAX, "ALARM Y MAX" },
+    { ALARM_Z_MIN, "ALARM z MIN" },
+    { ALARM_Z_MAX, "ALARM Z MAX" }
 #endif // NO_SETTINGS_DESCRIPTIONS
 };
 

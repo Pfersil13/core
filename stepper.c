@@ -441,9 +441,10 @@ ISR_CODE void ISR_FUNC(stepper_driver_interrupt_handler)(void)
             // If the new segment starts a new planner block, initialize stepper variables and counters.
             if(st.exec_block != st.exec_segment->exec_block) {
 
-                if((st.dir_changed.bits = st.dir_out.bits ^ st.exec_segment->exec_block->direction.bits))
+                if((st.dir_changed.bits = st.dir_out.bits ^ st.exec_segment->exec_block->direction.bits)){
                     st.dir_out = st.exec_segment->exec_block->direction;
-
+                    sys.last_dir = st.dir_out;
+                    }
                 if(st.exec_block != NULL && st.exec_block->offset_id != st.exec_segment->exec_block->offset_id)
                     sys.report.wco = sys.report.force_wco = On; // Do not generate grbl.on_rt_reports_added event!
 
