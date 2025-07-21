@@ -1,3 +1,11 @@
+## CHANGES ##
+I made a custom alarm for each axis and side based on axis endstop and last direction, the current implementation asumes 2 endstops per axis conected in series in same pin (X_MIN):
+
+  For example if the systems trigger switch x_min and the direction is 0:
+    ALARM:20 (ALARM X MAX)
+  if dir 1:
+    ALARM:19 (ALARM X MIN)
+    
 ## grblHAL ##
 
 Latest build date is 20250718, see the [changelog](changelog.md) for details.  
